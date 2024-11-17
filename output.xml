@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-11-17T11:28:17.080526" rpa="false" schemaversion="5">
+<suite id="s1" name="Ejar" source="D:\Automation\Projects\OCP_ejarmojservices\Test\ejar.robot">
+<kw name="begin web test" owner="Common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:28:17.748601" level="INFO">Opening browser 'chrome' to base url 'https://ocpstg.moj.gov.local/auth/login'.</msg>
+<msg time="2024-11-17T11:29:42.250882" level="WARN">There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache</msg>
+<arg>${STG_BASEURL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-17T11:28:17.748394" elapsed="87.484812"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.233471" elapsed="0.045502"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:28:17.747825" elapsed="87.531422"/>
+</kw>
+<test id="s1-t1" name="Verify that User can login OCP" line="16">
+<kw name="go to login page" owner="login">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>قم بتسجيل الدخول باستخدام حساب MOJ الخاص بك</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.280784" elapsed="0.020415"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:45.311290" level="INFO">Current page contains element '//input[@id='mat-input-0']'.</msg>
+<arg>//input[@id='mat-input-0']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.301439" elapsed="0.009929"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:29:45.280415" elapsed="0.031055"/>
+</kw>
+<kw name="fill element to login" owner="login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:45.313053" level="INFO">Typing text 'aosama' into text field '//input[@id='mat-input-0']'.</msg>
+<arg>//input[@id='mat-input-0']</arg>
+<arg>${LOGIN_User}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.312619" elapsed="0.140175"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:45.453150" level="INFO">Typing password into text field 'id=mat-input-1'.</msg>
+<msg time="2024-11-17T11:29:45.489265" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=mat-input-1</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.452959" elapsed="0.103327"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:45.556596" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<arg>//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.556450" elapsed="0.094396"/>
+</kw>
+<arg>aosama</arg>
+<arg>1234</arg>
+<status status="PASS" start="2024-11-17T11:29:45.311968" elapsed="0.339531"/>
+</kw>
+<kw name=" verify otp" owner="login">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>يرجى إدخال رمز التحقق المرسل على رقم الهاتف المسجل بمنصة أبشر</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.653525" elapsed="0.229656"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:45.883614" level="INFO">Typing text '1234' into text field '//input[@type='tel']'.</msg>
+<arg>//input[@type='tel']</arg>
+<arg>${otp}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:45.883377" elapsed="0.137279"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-17T11:29:51.021914" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-17T11:29:46.020946" elapsed="5.001132"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>//button[@type='button']</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-11-17T11:29:51.022380" elapsed="0.033122"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:51.055808" level="INFO">Clicking button '//button[@type='button']'.</msg>
+<arg>//button[@type='button']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:51.055663" elapsed="0.051953"/>
+</kw>
+<arg>1234</arg>
+<status status="PASS" start="2024-11-17T11:29:45.652872" elapsed="5.454831"/>
+</kw>
+<kw name=" verify dicrect to home" owner="login">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>الرئيسية</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-17T11:29:51.108289" elapsed="0.230280"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:29:51.108041" elapsed="0.230619"/>
+</kw>
+<doc>log in with user has permistion ejarmoiservices</doc>
+<tag>Smoke</tag>
+<status status="PASS" start="2024-11-17T11:29:45.279460" elapsed="6.059647"/>
+</test>
+<test id="s1-t2" name="Verify that Direct to ejar service" line="23">
+<kw name="Direct to ejar page" owner="ejarpage">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-17T11:29:56.340930" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-17T11:29:51.340264" elapsed="5.000767"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:56.341419" level="INFO">Clicking element '//nav[@class='nav-links']/mat-list[@class='mat-mdc-list mat-mdc-list-base mdc-list']/mat-list-item[6]/span[@class='mdc-list-item__content']/span[@class='mat-mdc-list-item-unscoped-content mdc-list-item__primary-text']'.</msg>
+<arg>//nav[@class='nav-links']/mat-list[@class='mat-mdc-list mat-mdc-list-base mdc-list']/mat-list-item[6]/span[@class='mdc-list-item__content']/span[@class='mat-mdc-list-item-unscoped-content mdc-list-item__primary-text']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:56.341220" elapsed="0.044594"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-17T11:29:59.386850" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-17T11:29:56.386023" elapsed="3.001019"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:59.387874" level="INFO">Clicking element '//a[@href='/inquiry-services/identity']'.</msg>
+<arg>//a[@href='/inquiry-services/identity']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.387527" elapsed="0.089632"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:29:51.340058" elapsed="8.137226"/>
+</kw>
+<doc>log in with user has permistion ejarmoiservices</doc>
+<tag>Smoke</tag>
+<status status="PASS" start="2024-11-17T11:29:51.339615" elapsed="8.138056"/>
+</test>
+<test id="s1-t3" name="Verify that page tittle correct ejar service" line="27">
+<kw name="ejar service page tittle" owner="ejarpage">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:59.487230" level="INFO">${page_tittle_value} = الاستعلام عن الهوية</msg>
+<var>${page_tittle_value}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.479071" elapsed="0.008210"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${page_tittle_value}</arg>
+<arg>الاستعلام عن الهوية</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.487758" elapsed="0.000257"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:29:59.478830" elapsed="0.009266"/>
+</kw>
+<doc>log in with user has permistion ejarmoiservices</doc>
+<tag>Smoke</tag>
+<status status="PASS" start="2024-11-17T11:29:59.478309" elapsed="0.010013"/>
+</test>
+<test id="s1-t4" name="Verify that page Containt ejar service" line="31">
+<kw name="Validate Breadcrumb" owner="ejarpage">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-17T11:29:59.512391" level="INFO">${breadcrumb_text} = الخدمات الاستعلامية
+الاستعلام عن الهوية</msg>
+<var>${breadcrumb_text}</var>
+<arg>//div[@class='breadcrumb']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.489273" elapsed="0.023156"/>
+</kw>
+<kw name="ssss">
+<msg time="2024-11-17T11:29:59.513553" level="FAIL">No keyword with name 'ssss' found.</msg>
+<var>${EXPECTED_BREADCRUMB}</var>
+<status status="FAIL" start="2024-11-17T11:29:59.513513" elapsed="0.000077">No keyword with name 'ssss' found.</status>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${breadcrumb_text}</arg>
+<arg>${EXPECTED_BREADCRUMB}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.513694" elapsed="0.000019"/>
+</kw>
+<status status="FAIL" start="2024-11-17T11:29:59.489119" elapsed="0.024678">No keyword with name 'ssss' found.</status>
+</kw>
+<doc>log in with user has permistion ejarmoiservices</doc>
+<tag>Smoke</tag>
+<status status="FAIL" start="2024-11-17T11:29:59.488772" elapsed="0.025483">No keyword with name 'ssss' found.</status>
+</test>
+<test id="s1-t5" name="Get Access Token and Fetch Contract Details" line="35">
+<kw name="Get Access Token" owner="Ejarcontract">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-11-17T11:29:59.515920" level="INFO">Creating Session using : alias=Authorize, url=https://api.moj.gov.local, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Authorize</arg>
+<arg>https://api.moj.gov.local</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-11-17T11:29:59.515820" elapsed="0.000384"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-11-17T11:29:59.516605" level="INFO">${data} = {'username': 'OtfSZCS6QCAxStVmktRjk4Nz40YVJg7g', 'password': 'p8rOlIh85AcfjTZt'}</msg>
+<var>${data}</var>
+<arg>username=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.516360" elapsed="0.000264"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-11-17T11:29:59.516764" level="INFO">Length is 51.</msg>
+<arg>${API_Auth}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.516694" elapsed="0.000096"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-11-17T11:29:59.516934" level="INFO">Sending POST request to https://api.moj.gov.local/v1/authorize/access-token with data: {'username': 'OtfSZCS6QCAxStVmktRjk4Nz40YVJg7g', 'password': 'p8rOlIh85AcfjTZt'}</msg>
+<arg>Sending POST request to ${API_Auth} with data: ${data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.516852" elapsed="0.000114"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2024-11-17T11:29:59.517048" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2024-11-17T11:29:59.517910" level="FAIL">Non-existing index or alias 'response_auth'.</msg>
+<var>${response_auth}</var>
+<arg>response_auth</arg>
+<arg>${API_Auth}</arg>
+<arg>json=${data}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="FAIL" start="2024-11-17T11:29:59.517032" elapsed="0.003027">Non-existing index or alias 'response_auth'.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Response Status Code: ${response_auth.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520175" elapsed="0.000019"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response_auth.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520264" elapsed="0.000016"/>
+</kw>
+<kw name="Convert String To Json" owner="JSONLibrary">
+<var>${json_response_auth}</var>
+<arg>${response_auth.content}</arg>
+<doc>Convert String to JSON object</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520355" elapsed="0.000013"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${token}</var>
+<arg>${json_response_auth}</arg>
+<arg>access_token</arg>
+<arg>default=None</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520420" elapsed="0.000012"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${token}</arg>
+<arg>Access token was not returned</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520484" elapsed="0.000012"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Access Token: ${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520545" elapsed="0.000012"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520585" elapsed="0.000022"/>
+</return>
+<var>${token}</var>
+<doc>Retrieve an access token using the provided username and password</doc>
+<status status="FAIL" start="2024-11-17T11:29:59.515612" elapsed="0.005063">Non-existing index or alias 'response_auth'.</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${id_number}</var>
+<arg>1040885046</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.520932" elapsed="0.000018"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${contract_number}</var>
+<arg>300000304384</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.521112" elapsed="0.000013"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${major_version}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.521356" elapsed="0.000020"/>
+</kw>
+<kw name="Get Contract Details" owner="Ejarcontract">
+<arg>${token}</arg>
+<arg>${id_number}</arg>
+<arg>${contract_number}</arg>
+<arg>${major_version}</arg>
+<doc>Retrieve contract details using the provided parameters</doc>
+<status status="NOT RUN" start="2024-11-17T11:29:59.521670" elapsed="0.000023"/>
+</kw>
+<doc>Retrieve an access token and fetch contract details</doc>
+<status status="FAIL" start="2024-11-17T11:29:59.515022" elapsed="0.006973">Non-existing index or alias 'response_auth'.</status>
+</test>
+<kw name="end web test" owner="Common" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-11-17T11:30:04.523884" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-11-17T11:29:59.523241" elapsed="5.000841"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-17T11:30:04.524408" elapsed="2.161352"/>
+</kw>
+<status status="PASS" start="2024-11-17T11:29:59.523100" elapsed="7.162907"/>
+</kw>
+<doc>Smoke Testing for ejarmojservices</doc>
+<status status="FAIL" start="2024-11-17T11:28:17.081680" elapsed="109.604372"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="3" fail="2" skip="0" id="s1" name="Ejar">Ejar</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-11-17T11:28:17.369940" level="WARN">Error in file 'D:\Automation\Projects\OCP_ejarmojservices\Resources\APIS\Ejarcontract.robot' on line 43: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-11-17T11:29:42.250882" level="WARN">There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache</msg>
+<msg time="2024-11-17T11:29:59.517048" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>
